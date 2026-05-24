@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   text-align: center;
 
-  background: linear-gradient(135deg, #fffaf2, #f3efe7, #ffffff);
-  color: #2c2c2c;
+  /* Soft luxury background */
+  background: linear-gradient(135deg, #ffffff, #eaf4ff, #f3eaff);
+  color: #333;
 }
 
 /* HERO */
@@ -15,25 +16,30 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(135deg, #ffffff, #f7f1e8);
+  background: linear-gradient(135deg, #ffffff, #e6f2ff, #f6ecff);
 }
 
 .hero h1 {
   font-size: 58px;
   margin: 0;
-  color: #b89b5e;
+
+  /* gradient text */
+  background: linear-gradient(90deg, #7fb3ff, #c59dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
   font-size: 20px;
-  color: #555;
+  color: #666;
 }
 
 .countdown {
   font-size: 28px;
   margin-top: 15px;
-  color: #b89b5e;
   font-weight: bold;
+
+  color: #7fb3ff;
 }
 
 /* SECTIONS */
@@ -48,20 +54,22 @@ body {
   padding: 25px;
   border-radius: 18px;
 
-  border: 1px solid #eee;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #e8e8ff;
+  box-shadow: 0 10px 30px rgba(127, 179, 255, 0.15);
 }
 
 h2 {
-  color: #b89b5e;
+  color: #7fb3ff;
 }
 
 .button {
   display: inline-block;
   margin-top: 15px;
   padding: 12px 20px;
-  background: #b89b5e;
+
+  background: linear-gradient(90deg, #7fb3ff, #c59dff);
   color: white;
+
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
@@ -70,5 +78,5 @@ h2 {
 /* FOOTER */
 footer {
   padding: 30px;
-  color: #777;
+  color: #888;
 }
