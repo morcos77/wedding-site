@@ -1,10 +1,14 @@
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: "Arial", sans-serif;
   text-align: center;
 
-  background: linear-gradient(135deg, #ffffff, #eef6ff, #f7f1ff);
+  background: linear-gradient(-45deg, #ffffff, #eaf4ff, #f3eaff, #ffffff);
+  background-size: 400% 400%;
+  animation: bgMove 12s ease infinite;
+
   color: #333;
+  overflow-x: hidden;
 }
 
 /* HERO */
@@ -15,93 +19,151 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: radial-gradient(circle, #fff, #eef6ff, #f7f1ff);
+  position: relative;
+}
+
+/* floating glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(111,168,255,0.4), transparent);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(40px);
+  animation: floatGlow 4s ease-in-out infinite;
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: 65px;
   margin: 0;
 
-  background: linear-gradient(90deg, #6fa8ff, #b99cff);
+  background: linear-gradient(90deg, #6fa8ff, #b99cff, #6fa8ff);
+  background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  animation: textShine 3s linear infinite, fadeDown 1.2s ease;
 }
 
 .hero p {
-  font-size: 20px;
-  color: #666;
+  font-size: 22px;
+  color: #555;
+  animation: fadeIn 2s ease;
 }
 
+/* COUNTDOWN */
 .countdown {
-  font-size: 26px;
+  font-size: 28px;
   margin-top: 15px;
   font-weight: bold;
   color: #6fa8ff;
+
   animation: pulse 2s infinite;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
   padding: 60px 20px;
 }
 
+/* CARD */
 .card {
-  background: white;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+
   max-width: 600px;
-  margin: 20px auto;
-  padding: 25px;
-  border-radius: 20px;
+  margin: 25px auto;
+  padding: 30px;
+
+  border-radius: 22px;
 
   border: 1px solid #e6e6ff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 50px rgba(111,168,255,0.15);
 
   opacity: 0;
-  transform: translateY(40px);
-  animation: cardIn 1s forwards;
+  transform: translateY(60px) scale(0.95);
+  animation: cardPop 0.9s forwards;
 }
 
+/* stagger */
 .card:nth-child(1){animation-delay:0.2s;}
 .card:nth-child(2){animation-delay:0.4s;}
 .card:nth-child(3){animation-delay:0.6s;}
 
 h2 {
   color: #6fa8ff;
+  font-size: 26px;
 }
 
+/* BUTTON */
 .button {
   display: inline-block;
   margin-top: 15px;
-  padding: 12px 20px;
+  padding: 14px 24px;
 
-  background: linear-gradient(90deg, #6fa8ff, #b99cff);
+  background: linear-gradient(135deg, #6fa8ff, #b99cff);
   color: white;
 
-  border-radius: 12px;
+  border-radius: 14px;
   text-decoration: none;
   font-weight: bold;
 
-  transition: 0.3s;
+  transition: 0.4s ease;
 }
 
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 10px 30px rgba(111,168,255,0.3);
 }
 
+/* FOOTER */
 footer {
-  padding: 30px;
+  padding: 40px;
   color: #888;
+  animation: fadeIn 3s ease;
 }
 
-/* ANIMATIONS */
-@keyframes cardIn {
+/* ================= ANIMATIONS ================= */
+
+@keyframes bgMove {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+@keyframes textShine {
+  0% {background-position:0%}
+  100% {background-position:200%}
+}
+
+@keyframes fadeDown {
+  from {opacity:0; transform:translateY(-40px)}
+  to {opacity:1; transform:translateY(0)}
+}
+
+@keyframes fadeIn {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+@keyframes cardPop {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {transform:scale(1)}
+  50% {transform:scale(1.08)}
+  100% {transform:scale(1)}
+}
+
+@keyframes floatGlow {
+  0% {transform:translateX(-50%) translateY(0)}
+  50% {transform:translateX(-50%) translateY(20px)}
+  100% {transform:translateX(-50%) translateY(0)}
 }
