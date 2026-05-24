@@ -1,14 +1,35 @@
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
 
-  background: linear-gradient(-45deg, #ffffff, #eaf4ff, #f3eaff, #ffffff);
+  background: linear-gradient(-45deg, #ffffff, #eef6ff, #f7f1ff, #ffffff);
   background-size: 400% 400%;
-  animation: bgMove 12s ease infinite;
+  animation: bgMove 10s ease infinite;
 
   color: #333;
   overflow-x: hidden;
+}
+
+/* VERSION BADGE */
+.version {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+
+  background: rgba(111,168,255,0.15);
+  color: #6fa8ff;
+
+  padding: 6px 10px;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(111,168,255,0.3);
+
+  z-index: 9999;
 }
 
 /* HERO */
@@ -22,49 +43,43 @@ body {
   position: relative;
 }
 
-/* floating glow */
 .hero::before {
   content: "";
   position: absolute;
   width: 300px;
   height: 300px;
   background: radial-gradient(circle, rgba(111,168,255,0.4), transparent);
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
   filter: blur(40px);
   animation: floatGlow 4s ease-in-out infinite;
 }
 
 .hero h1 {
-  font-size: 65px;
+  font-size: 62px;
   margin: 0;
 
-  background: linear-gradient(90deg, #6fa8ff, #b99cff, #6fa8ff);
-  background-size: 200%;
+  background: linear-gradient(90deg, #6fa8ff, #b99cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: textShine 3s linear infinite, fadeDown 1.2s ease;
+  animation: fadeDown 1.2s ease;
 }
 
 .hero p {
-  font-size: 22px;
-  color: #555;
-  animation: fadeIn 2s ease;
+  font-size: 20px;
+  color: #666;
+  animation: fadeIn 1.5s ease;
 }
 
 /* COUNTDOWN */
 .countdown {
   font-size: 28px;
   margin-top: 15px;
-  font-weight: bold;
   color: #6fa8ff;
-
+  font-weight: bold;
   animation: pulse 2s infinite;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section {
   padding: 60px 20px;
 }
@@ -79,23 +94,21 @@ body {
   padding: 30px;
 
   border-radius: 22px;
-
   border: 1px solid #e6e6ff;
+
   box-shadow: 0 20px 50px rgba(111,168,255,0.15);
 
   opacity: 0;
   transform: translateY(60px) scale(0.95);
-  animation: cardPop 0.9s forwards;
+  animation: cardIn 0.9s forwards;
 }
 
-/* stagger */
 .card:nth-child(1){animation-delay:0.2s;}
 .card:nth-child(2){animation-delay:0.4s;}
 .card:nth-child(3){animation-delay:0.6s;}
 
 h2 {
   color: #6fa8ff;
-  font-size: 26px;
 }
 
 /* BUTTON */
@@ -111,11 +124,11 @@ h2 {
   text-decoration: none;
   font-weight: bold;
 
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 .button:hover {
-  transform: scale(1.1) rotate(-1deg);
+  transform: scale(1.1);
   box-shadow: 0 10px 30px rgba(111,168,255,0.3);
 }
 
@@ -123,24 +136,17 @@ h2 {
 footer {
   padding: 40px;
   color: #888;
-  animation: fadeIn 3s ease;
 }
 
-/* ================= ANIMATIONS ================= */
-
+/* ANIMATIONS */
 @keyframes bgMove {
   0% {background-position:0% 50%}
   50% {background-position:100% 50%}
   100% {background-position:0% 50%}
 }
 
-@keyframes textShine {
-  0% {background-position:0%}
-  100% {background-position:200%}
-}
-
 @keyframes fadeDown {
-  from {opacity:0; transform:translateY(-40px)}
+  from {opacity:0; transform:translateY(-30px)}
   to {opacity:1; transform:translateY(0)}
 }
 
@@ -149,7 +155,7 @@ footer {
   to {opacity:1}
 }
 
-@keyframes cardPop {
+@keyframes cardIn {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -158,12 +164,12 @@ footer {
 
 @keyframes pulse {
   0% {transform:scale(1)}
-  50% {transform:scale(1.08)}
+  50% {transform:scale(1.07)}
   100% {transform:scale(1)}
 }
 
 @keyframes floatGlow {
-  0% {transform:translateX(-50%) translateY(0)}
-  50% {transform:translateX(-50%) translateY(20px)}
-  100% {transform:translateX(-50%) translateY(0)}
+  0% {transform:translateY(0)}
+  50% {transform:translateY(20px)}
+  100% {transform:translateY(0)}
 }
