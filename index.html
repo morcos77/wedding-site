@@ -3,94 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>فرح مرقس وإيلاريا</title>
+  <title>مرقس ❤️ إيلاريا</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #fff, #f7f2ff);
-      text-align: center;
-      color: #333;
-    }
-
-    header {
-      padding: 60px 20px;
-      background: #6a1b9a;
-      color: white;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 40px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    .section {
-      padding: 40px 20px;
-    }
-
-    .card {
-      background: white;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 600px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .countdown {
-      font-size: 28px;
-      font-weight: bold;
-      color: #6a1b9a;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #6a1b9a;
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-    }
-
-    footer {
-      padding: 20px;
-      font-size: 14px;
-      color: gray;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<div class="hero">
   <h1>مرقس ❤️ إيلاريا</h1>
-  <div class="subtitle">12 فبراير 2027</div>
-</header>
+  <p>12 فبراير 2027</p>
+  <div class="countdown" id="countdown"></div>
+</div>
 
 <div class="section">
 
   <div class="card">
-    <h2>⏳ العد التنازلي للفرح</h2>
-    <div class="countdown" id="countdown"></div>
-  </div>
-
-  <div class="card">
     <h2>⛪ الإكليل</h2>
     <p>كنيسة مار يوحنا</p>
-    <p>12-02-2027 | الساعة 11:00 صباحًا</p>
+    <p>12-02-2027 | 11:00 صباحًا</p>
   </div>
 
   <div class="card">
     <h2>🎉 الحفل</h2>
     <p>قاعة الماسة</p>
-    <p>12-02-2027 | الساعة 6:00 مساءً</p>
+    <p>12-02-2027 | 6:00 مساءً</p>
 
     <a class="button" href="https://www.google.com/maps" target="_blank">
       فتح الموقع على الخريطة
@@ -98,38 +35,17 @@
   </div>
 
   <div class="card">
-    <h2>💌 رسالة لكم</h2>
-    <p>
-      ننتظركم لتشاركونا أجمل يوم في حياتنا ❤️
-    </p>
+    <h2>💌 رسالة</h2>
+    <p>ننتظركم لنشارككم أجمل لحظة في حياتنا ❤️</p>
   </div>
 
 </div>
 
 <footer>
-  Made with ❤️ for our special day
+Made with love ✨
 </footer>
 
-<script>
-  const weddingDate = new Date("Feb 12, 2027 11:00:00").getTime();
-
-  const x = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-      days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية";
-
-    if (distance < 0) {
-      document.getElementById("countdown").innerHTML = "🎉 اليوم الكبير وصل 🎉";
-    }
-  }, 1000);
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
