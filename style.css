@@ -3,8 +3,8 @@ body {
   font-family: "Arial", sans-serif;
   text-align: center;
 
-  /* Soft luxury background */
-  background: linear-gradient(135deg, #ffffff, #eaf4ff, #f3eaff);
+  /* خلفية أنعم + فخمة أكثر */
+  background: linear-gradient(135deg, #ffffff, #eef6ff, #f7f1ff);
   color: #333;
 }
 
@@ -16,30 +16,34 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(135deg, #ffffff, #e6f2ff, #f6ecff);
+  /* طبقة شفافة أنعم */
+  background: radial-gradient(circle at top, #ffffff, #eef6ff, #f7f1ff);
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 60px;
   margin: 0;
 
-  /* gradient text */
-  background: linear-gradient(90deg, #7fb3ff, #c59dff);
+  /* gradient أهدى + أفخم */
+  background: linear-gradient(90deg, #6fa8ff, #b99cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  letter-spacing: 1px;
 }
 
 .hero p {
   font-size: 20px;
   color: #666;
+  margin-top: 10px;
 }
 
+/* COUNTDOWN */
 .countdown {
-  font-size: 28px;
+  font-size: 26px;
   margin-top: 15px;
   font-weight: bold;
-
-  color: #7fb3ff;
+  color: #6fa8ff;
 }
 
 /* SECTIONS */
@@ -47,36 +51,55 @@ body {
   padding: 60px 20px;
 }
 
+/* CARD */
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+
   max-width: 600px;
   margin: 20px auto;
-  padding: 25px;
-  border-radius: 18px;
+  padding: 28px;
 
-  border: 1px solid #e8e8ff;
-  box-shadow: 0 10px 30px rgba(127, 179, 255, 0.15);
+  border-radius: 20px;
+
+  border: 1px solid #e6e6ff;
+
+  /* shadow أنعم وأعمق */
+  box-shadow: 0 12px 35px rgba(111, 168, 255, 0.12);
+
+  /* blur effect خفيف (لو browser يدعم) */
+  backdrop-filter: blur(6px);
 }
 
+/* TITLES */
 h2 {
-  color: #7fb3ff;
+  color: #6fa8ff;
+  margin-bottom: 10px;
 }
 
+/* BUTTON */
 .button {
   display: inline-block;
   margin-top: 15px;
-  padding: 12px 20px;
+  padding: 12px 22px;
 
-  background: linear-gradient(90deg, #7fb3ff, #c59dff);
+  background: linear-gradient(90deg, #6fa8ff, #b99cff);
   color: white;
 
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 /* FOOTER */
 footer {
   padding: 30px;
   color: #888;
+  font-size: 14px;
 }
