@@ -1,6 +1,6 @@
 const weddingDate = new Date("Feb 12, 2027 11:00:00").getTime();
 
-setInterval(function () {
+setInterval(() => {
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
