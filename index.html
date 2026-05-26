@@ -17,9 +17,7 @@
     <p class="date-label">February 27, 2027</p>
     <div class="countdown" id="countdown"></div>
     
-    <a href="https://morcos77.github.io/wedding-site/" class="qr-button" target="_blank">
-      View Wedding Details (QR)
-    </a>
+    <button class="qr-button" onclick="openQR()">View QR Code</button>
   </div>
 </div>
 
@@ -43,6 +41,13 @@
     <img src="images/gif_butterflys_1.gif" style="width: 100px;">
     <p>We can't wait to celebrate with you!</p>
 </footer>
+
+<div id="qr-popup" class="qr-popup" onclick="closeQR()">
+  <div class="qr-content" onclick="event.stopPropagation()">
+    <img src="images/qr.png" alt="QR Code">
+    <button onclick="closeQR()">Close</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
