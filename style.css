@@ -3,18 +3,29 @@ body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; backg
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 .overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.4); }
-.hero-content { position: relative; z-index: 1; padding: 20px; }
+.hero-content { position: relative; z-index: 1; padding: 20px; animation: fadeIn 2s; }
 
 .date-label { font-size: 20px; font-weight: bold; margin-bottom: 10px; color: #7a6a9b; }
 .countdown { font-size: 26px; font-weight: bold; background: white; padding: 15px; border-radius: 20px; display: inline-block; margin: 15px 0; border: 2px solid #e6dcf5; }
 
-/* QR BUTTON */
 .qr-button { 
-  display: block; background: #8a70a0; color: white; padding: 20px 40px; 
-  text-decoration: none; border-radius: 50px; font-weight: bold; 
-  margin: 30px auto; width: fit-content; transition: 0.3s;
+  display: block; background: #8a70a0; color: white; padding: 15px 30px; 
+  border: none; border-radius: 50px; font-weight: bold; cursor: pointer;
+  margin: 20px auto; transition: 0.3s;
 }
 .qr-button:hover { transform: scale(1.1); background: #6a5080; }
 
-.card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; }
-.decor-gif { width: 80px; margin-bottom: 10px; }
+.card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.decor-gif { width: 120px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+
+/* QR Popup Styles */
+.qr-popup {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7); z-index: 1000;
+  justify-content: center; align-items: center;
+}
+.qr-content { background: white; padding: 20px; border-radius: 20px; text-align: center; }
+.qr-content img { width: 250px; height: 250px; display: block; margin-bottom: 15px; }
+.qr-content button { background: #8a70a0; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
