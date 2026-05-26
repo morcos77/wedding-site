@@ -1,4 +1,3 @@
-// Target date: Feb 27, 2027
 const weddingDate = new Date("Feb 27, 2027 11:00:00").getTime();
 
 setInterval(() => {
@@ -12,7 +11,8 @@ setInterval(() => {
 
   const countdownEl = document.getElementById("countdown");
   if(countdownEl) {
-      countdownEl.innerHTML = `📅 ${d}d | ${h}h | ${m}m | ${s}s`;
+      // Forza il formato in inglese
+      countdownEl.innerHTML = `${d} Days | ${h}h | ${m}m | ${s}s`;
   }
 
   if(distance < 0){
