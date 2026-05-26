@@ -1,31 +1,26 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; overflow-x: hidden; }
+
+/* GIF ANIMATE OVUNQUE */
+.bg-gif { position: fixed; z-index: 10; width: 150px; pointer-events: none; }
+.gif-1 { top: 10%; left: 5%; }
+.gif-2 { bottom: 10%; right: 5%; }
 
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.4); }
-.hero-content { position: relative; z-index: 1; padding: 20px; animation: fadeIn 2s; }
+.overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.3); z-index: 0; }
+.hero-content { position: relative; z-index: 5; padding: 20px; }
 
-.date-label { font-size: 20px; font-weight: bold; margin-bottom: 10px; color: #7a6a9b; }
-.countdown { font-size: 26px; font-weight: bold; background: white; padding: 15px; border-radius: 20px; display: inline-block; margin: 15px 0; border: 2px solid #e6dcf5; }
+/* ANIMAZIONE TITOLO */
+.animate-pulse { font-size: 80px; animation: heartbeat 1.5s infinite; }
+@keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-.qr-button { 
-  display: block; background: #8a70a0; color: white; padding: 15px 30px; 
-  border: none; border-radius: 50px; font-weight: bold; cursor: pointer;
-  margin: 20px auto; transition: 0.3s;
-}
-.qr-button:hover { transform: scale(1.1); background: #6a5080; }
+.map-link { display: inline-block; margin-top: 10px; color: #8a70a0; font-weight: bold; text-decoration: none; }
+
+.qr-button { background: #8a70a0; color: white; padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; margin-top: 20px; }
 
 .card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.decor-gif { width: 120px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
 
-/* QR Popup Styles */
-.qr-popup {
-  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7); z-index: 1000;
-  justify-content: center; align-items: center;
-}
-.qr-content { background: white; padding: 20px; border-radius: 20px; text-align: center; }
-.qr-content img { width: 250px; height: 250px; display: block; margin-bottom: 15px; }
-.qr-content button { background: #8a70a0; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* Popup QR */
+.qr-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; }
+.qr-content { background: white; padding: 20px; border-radius: 20px; }
+.qr-content img { width: 250px; }
