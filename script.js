@@ -1,4 +1,3 @@
-// Countdown
 const weddingDate = new Date("Feb 27, 2027 11:00:00").getTime();
 
 setInterval(() => {
@@ -14,17 +13,7 @@ setInterval(() => {
   if(countdownEl) {
       countdownEl.innerHTML = `${d} Days | ${h}h | ${m}m | ${s}s`;
   }
-
-  if(distance < 0){
-    document.getElementById("countdown").innerHTML = "💍 The Big Day is Here!";
-  }
 }, 1000);
 
-// QR Popup functions
-function openQR() {
-  document.getElementById("qr-popup").style.display = "flex";
-}
-
-function closeQR() {
-  document.getElementById("qr-popup").style.display = "none";
-}
+function openQR() { document.getElementById("qr-popup").style.display = "flex"; }
+function closeQR() { document.getElementById("qr-popup").style.display = "none"; }
