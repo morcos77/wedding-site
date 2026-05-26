@@ -1,4 +1,4 @@
-// Data impostata al 27 Febbraio 2027
+// Target date: Feb 27, 2027
 const weddingDate = new Date("Feb 27, 2027 11:00:00").getTime();
 
 setInterval(() => {
@@ -12,10 +12,10 @@ setInterval(() => {
 
   const countdownEl = document.getElementById("countdown");
   if(countdownEl) {
-      countdownEl.innerHTML = d + " يوم | " + h + " س | " + m + " د | " + s + " ث";
+      countdownEl.innerHTML = `📅 ${d}d | ${h}h | ${m}m | ${s}s`;
   }
 
   if(distance < 0){
-    document.getElementById("countdown").innerHTML = "💍 اليوم الكبير";
+    document.getElementById("countdown").innerHTML = "💍 The Big Day is Here!";
   }
 }, 1000);
