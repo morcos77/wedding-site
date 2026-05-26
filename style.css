@@ -1,21 +1,20 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fdf7ff; color: #4a4a4a; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; }
 
-/* HERO */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(200, 180, 255, 0.4)); z-index: 0; }
-.hero-content { position: relative; z-index: 1; color: #4b0082; padding: 20px; animation: pulseScale 3s infinite ease-in-out; }
+.overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.4); }
+.hero-content { position: relative; z-index: 1; padding: 20px; }
 
-.hero h1 { font-size: 90px; margin: 0; text-shadow: 0 0 20px rgba(255,255,255,0.8); }
-.countdown { font-size: 32px; font-weight: bold; margin: 20px 0; background: rgba(255,255,255,0.8); padding: 20px; border-radius: 30px; display: inline-block; animation: glow 2s infinite; }
+.date-label { font-size: 20px; font-weight: bold; margin-bottom: 10px; color: #7a6a9b; }
+.countdown { font-size: 26px; font-weight: bold; background: white; padding: 15px; border-radius: 20px; display: inline-block; margin: 15px 0; border: 2px solid #e6dcf5; }
 
-/* ANIMATIONS */
-@keyframes pulseScale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-@keyframes glow { 0%, 100% { box-shadow: 0 0 10px #d6b4fc; } 50% { box-shadow: 0 0 30px #b485ff; } }
+/* QR BUTTON */
+.qr-button { 
+  display: block; background: #8a70a0; color: white; padding: 20px 40px; 
+  text-decoration: none; border-radius: 50px; font-weight: bold; 
+  margin: 30px auto; width: fit-content; transition: 0.3s;
+}
+.qr-button:hover { transform: scale(1.1); background: #6a5080; }
 
-/* CARDS */
-.card { background: rgba(255,255,255,0.9); border: 3px solid #d6b4fc; border-radius: 40px; padding: 40px; margin: 30px auto; max-width: 500px; transition: transform 0.3s; }
-.card:hover { transform: scale(1.05); }
-
-.gif-hero { width: 150px; margin-top: 30px; }
-.small-gif { width: 100px; margin-top: 20px; }
+.card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; }
+.decor-gif { width: 80px; margin-bottom: 10px; }
