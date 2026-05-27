@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M ♡ E | Our Wedding</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M ♡ E | Our Wedding</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,37 +12,45 @@
 <img src="images/gif_butterflys.gif" class="bg-gif gif-2">
 
 <div class="hero">
-  <img src="images/main.jpeg" class="hero-bg" alt="Wedding">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <img src="images/names.png" alt="Morcos & Elaria" class="names-image">
-    <p class="date-label">February 27, 2027</p>
-    <div class="countdown" id="countdown"></div>
-    <button class="qr-button" onclick="openQR()">View QR Code</button>
-  </div>
+    <img src="images/main.jpeg" class="hero-bg" alt="Wedding">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <img src="images/names.png" alt="Morcos & Elaria" class="names-image">
+        <p class="date-label">February 27, 2027</p>
+        <div class="countdown" id="countdown"></div>
+        <button class="qr-button" onclick="openQR()">View QR Code</button>
+    </div>
 </div>
 
 <div class="section">
-  <div class="card">
-    <h2>💌 Private Message</h2>
-    <input type="text" placeholder="Your Name" class="input-field" id="sender-name">
-    <textarea placeholder="Write a sweet message for us..." class="input-field" id="message"></textarea>
-    <button class="submit-btn">Send Message</button>
-  </div>
-
-  <div class="card">
-    <h2>📸 Gallery (Max 10 images)</h2>
-    <input type="file" multiple accept="image/*" id="file-input" class="input-field" onchange="checkFileCount()">
-    <p id="file-count" style="font-size: 12px; color: #888;">0/10 images selected</p>
-    <button class="submit-btn">Upload</button>
-  </div>
+    <div class="card">
+        <h2>⛪ The Ceremony</h2>
+        <p>St. John Church</p>
+        <a href="URL_GOOGLE_MAPS_CHIESA" target="_blank" class="map-link">📍 View on Maps</a>
+    </div>
+    <div class="card">
+        <h2>🎉 The Reception</h2>
+        <p>Almasa Hall</p>
+        <a href="URL_GOOGLE_MAPS_SALA" target="_blank" class="map-link">📍 View on Maps</a>
+    </div>
+    <div class="card">
+        <h2>💌 Private Message</h2>
+        <input type="text" placeholder="Your Name" class="input-field" id="sender-name">
+        <textarea placeholder="Write a message for us..." class="input-field" id="message"></textarea>
+        <button class="submit-btn" onclick="alert('Message Sent!')">Send Message</button>
+    </div>
+    <div class="card">
+        <h2>📸 Gallery (Max 10)</h2>
+        <input type="file" multiple accept="image/*" id="file-input" class="input-field" onchange="checkFileCount()">
+        <p id="file-count" style="font-size: 12px; color: #888;">0/10 selected</p>
+    </div>
 </div>
 
 <div id="qr-popup" class="qr-popup" onclick="closeQR()">
-  <div class="qr-content" onclick="event.stopPropagation()">
-    <img src="images/qr.png" alt="QR Code">
-    <button class="close-btn" onclick="closeQR()">✕ Close</button>
-  </div>
+    <div class="qr-content" onclick="event.stopPropagation()">
+        <img src="images/qr.png" alt="QR Code">
+        <button class="close-btn" onclick="closeQR()">✕ Close</button>
+    </div>
 </div>
 
 <script src="script.js"></script>
