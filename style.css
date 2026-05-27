@@ -1,26 +1,28 @@
 body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; overflow-x: hidden; }
 
-/* GIF ANIMATE OVUNQUE */
-.bg-gif { position: fixed; z-index: 10; width: 150px; pointer-events: none; }
-.gif-1 { top: 10%; left: 5%; }
-.gif-2 { bottom: 10%; right: 5%; }
-
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.3); z-index: 0; }
 .hero-content { position: relative; z-index: 5; padding: 20px; }
 
-/* ANIMAZIONE TITOLO */
-.animate-pulse { font-size: 80px; animation: heartbeat 1.5s infinite; }
-@keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+/* NOMI E DATA GRANDI */
+.animate-pulse { font-size: 110px; margin: 0; animation: heartbeat 2s infinite; }
+.names-text { font-size: 40px; font-weight: bold; margin: 10px 0; color: #5a4a6b; }
+.date-label { font-size: 28px; font-weight: bold; margin-bottom: 20px; color: #8a70a0; }
 
-.map-link { display: inline-block; margin-top: 10px; color: #8a70a0; font-weight: bold; text-decoration: none; }
+.countdown { font-size: 32px; font-weight: bold; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 20px; display: inline-block; margin-bottom: 20px; }
 
-.qr-button { background: #8a70a0; color: white; padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; margin-top: 20px; }
+.card { background: white; padding: 40px; margin: 30px auto; max-width: 500px; border-radius: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.input-field { width: 90%; padding: 15px; margin: 10px 0; border-radius: 15px; border: 1px solid #ddd; }
+.submit-btn { background: #8a70a0; color: white; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; }
 
-.card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+/* PULSANTE CLOSE */
+.close-btn { 
+    background: #ff4d4d; color: white; border: none; 
+    padding: 12px 30px; border-radius: 50px; cursor: pointer; 
+    font-weight: bold; margin-top: 15px; width: 100%;
+}
 
-/* Popup QR */
-.qr-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; }
-.qr-content { background: white; padding: 20px; border-radius: 20px; }
-.qr-content img { width: 250px; }
+.qr-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center; }
+.qr-content { background: white; padding: 30px; border-radius: 30px; text-align: center; }
+
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
