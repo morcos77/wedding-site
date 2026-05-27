@@ -1,22 +1,21 @@
 body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; }
 
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+/* GIF Decorative Fisse */
+.decor-gif { position: fixed; width: 120px; z-index: 100; pointer-events: none; }
+.top-left { top: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 .overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(255,255,255,0.2); z-index: 0; }
 .hero-content { position: relative; z-index: 2; padding: 20px; }
 
-/* Immagine nomi centrata e proporzionata */
-.names-image { width: 90%; max-width: 500px; height: auto; display: block; margin: 0 auto 20px auto; }
-
-.inline-gif { width: 80px; display: block; margin: 10px auto; }
+/* Immagini centrate */
+.names-image, .date-image { width: 80%; max-width: 400px; display: block; margin: 10px auto; }
 
 .card { background: white; padding: 25px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 .input-field { width: 90%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; }
-
-.submit-btn, .qr-main-button { 
-    background: #8a70a0; color: white; padding: 15px 30px; 
-    border: none; border-radius: 20px; cursor: pointer; font-size: 16px; margin: 10px;
-}
+.submit-btn, .qr-main-button { background: #8a70a0; color: white; padding: 15px 30px; border: none; border-radius: 20px; cursor: pointer; font-size: 16px; margin: 10px; }
 
 .qr-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center; }
 .qr-content { background: white; padding: 20px; border-radius: 20px; text-align: center; }
