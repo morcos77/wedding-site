@@ -1,15 +1,24 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; overflow-x: hidden; }
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #fcf6ff; color: #5a4a6b; }
+
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.hero-content { position: relative; z-index: 5; }
-.names-image { width: 80%; max-width: 400px; animation: heartbeat 2s infinite; }
-.bg-gif { position: fixed; z-index: 10; width: 120px; pointer-events: none; }
-.gif-1 { top: 5%; left: 5%; }
-.gif-2 { bottom: 5%; right: 5%; }
-.countdown { font-size: 28px; font-weight: bold; background: white; padding: 15px; border-radius: 20px; display: inline-block; margin: 15px; }
-.card { background: white; padding: 30px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.input-field { width: 80%; padding: 10px; margin: 5px 0; border-radius: 10px; border: 1px solid #ccc; }
-.qr-button, .submit-btn { background: #8a70a0; color: white; padding: 12px 25px; border: none; border-radius: 20px; cursor: pointer; }
+.overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(255,255,255,0.2); z-index: 0; }
+.hero-content { position: relative; z-index: 2; padding: 20px; }
+
+/* Immagine nomi centrata e proporzionata */
+.names-image { width: 90%; max-width: 500px; height: auto; display: block; margin: 0 auto 20px auto; }
+
+.inline-gif { width: 80px; display: block; margin: 10px auto; }
+
+.card { background: white; padding: 25px; margin: 20px auto; max-width: 400px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.input-field { width: 90%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; }
+
+.submit-btn, .qr-main-button { 
+    background: #8a70a0; color: white; padding: 15px 30px; 
+    border: none; border-radius: 20px; cursor: pointer; font-size: 16px; margin: 10px;
+}
+
 .qr-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center; }
-.close-btn { background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 10px; }
-@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.qr-content { background: white; padding: 20px; border-radius: 20px; text-align: center; }
+.qr-content img { width: 250px; display: block; margin: 0 auto; }
+.close-btn { background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 15px; }
