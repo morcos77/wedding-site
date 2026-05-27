@@ -15,12 +15,7 @@
   <img src="images/main.jpeg" class="hero-bg" alt="Wedding">
   <div class="overlay"></div>
   <div class="hero-content">
-    <h1 class="animate-pulse">
-        <span style="color: #8a2be2;">M</span> 
-        <span style="color: #ff0000;">♡</span> 
-        <span style="color: #89cff0;">E</span>
-    </h1>
-    <p class="names-text">Morcos & Elaria</p>
+    <img src="images/names.png" alt="Morcos & Elaria" class="names-image">
     <p class="date-label">February 27, 2027</p>
     <div class="countdown" id="countdown"></div>
     <button class="qr-button" onclick="openQR()">View QR Code</button>
@@ -29,32 +24,22 @@
 
 <div class="section">
   <div class="card">
-    <h2>⛪ The Ceremony</h2>
-    <p>St. John Church</p>
-    <a href="https://www.google.com/maps/place/%D9%83%D9%86%D9%8A%D8%B3%D8%A9+%D8%A7%D9%84%D8%A3%D9%86%D8%AC%D9%8A%D9%84%D9%89+%D9%85%D8%A7%D8%B1+%D9%8A%D9%88%D8%AD%D9%86%D8%A7+%D8%A7%D9%84%D8%AD%D8%A8%D9%8A%D8%A8+%D8%A8%D8%A8%D9%86%D9%87%D8%A7+%D8%A5%D9%8A%D8%A8%D8%A7%D8%B1%D8%B4%D9%8A%D8%A9+%D8%A8%D9%86%D9%87%D8%A7+%D9%88+%D9%82%D9%88%D9%8A%D8%B3%D9%86%D8%A7+%D9%88+%D8%AA%D9%88%D8%A7%D8%A8%D8%B9%D9%87%D8%A7%E2%80%AD/@30.4697317,31.1785743,17z/data=!3m1!4b1!4m6!3m5!1s0x14f7df50954276a3:0xf0d354aca1b7bed0!8m2!3d30.4697317!4d31.1811492!16s%2Fg%2F11b75qnzfp?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">📍 View on Maps</a>
-  </div>
-
-  <div class="card">
-    <h2>🎉 The Reception</h2>
-    <p>Almasa Hall</p>
-    <a href="https://www.google.com/maps/place/%D9%82%D8%A7%D8%B9%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D8%B3%D8%A9+-+El+Masa+Wedding+Hall%E2%80%AD/@30.4816256,31.1701001,17z/data=!3m1!4b1!4m6!3m5!1s0x14f7df4b5c7187ff:0xe81348c192b6d062!8m2!3d30.4816256!4d31.172675!16s%2Fg%2F11cn6q1kwg?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">📍 View on Maps</a>
-  </div>
-
-  <div class="card">
     <h2>💌 Private Message</h2>
-    <textarea placeholder="Write a sweet message for us..." class="input-field"></textarea>
+    <input type="text" placeholder="Your Name" class="input-field" id="sender-name">
+    <textarea placeholder="Write a sweet message for us..." class="input-field" id="message"></textarea>
     <button class="submit-btn">Send Message</button>
   </div>
 
   <div class="card">
-    <h2>📸 Upload Image</h2>
-    <input type="file" class="input-field">
+    <h2>📸 Gallery (Max 10 images)</h2>
+    <input type="file" multiple accept="image/*" id="file-input" class="input-field" onchange="checkFileCount()">
+    <p id="file-count" style="font-size: 12px; color: #888;">0/10 images selected</p>
     <button class="submit-btn">Upload</button>
   </div>
 </div>
 
-<div id="qr-popup" class="qr-popup">
-  <div class="qr-content">
+<div id="qr-popup" class="qr-popup" onclick="closeQR()">
+  <div class="qr-content" onclick="event.stopPropagation()">
     <img src="images/qr.png" alt="QR Code">
     <button class="close-btn" onclick="closeQR()">✕ Close</button>
   </div>
