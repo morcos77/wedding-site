@@ -8,9 +8,12 @@ function triggerConfetti() {
 function closeQR() { document.getElementById("qr-popup").style.display = "none"; }
 
 setInterval(() => {
-    const d = new Date().getTime();
-    const dist = weddingDate - d;
-    document.getElementById("days").innerHTML = Math.floor(dist / (1000*60*60*24));
-    document.getElementById("hours").innerHTML = Math.floor((dist % (1000*60*60*24)) / (1000*60*60));
-    document.getElementById("mins").innerHTML = Math.floor((dist % (1000*60*60)) / (1000*60));
+    const now = new Date().getTime();
+    const dist = weddingDate - now;
+    
+    if (dist > 0) {
+        document.getElementById("days").innerHTML = Math.floor(dist / (1000*60*60*24));
+        document.getElementById("hours").innerHTML = Math.floor((dist % (1000*60*60*24)) / (1000*60*60));
+        document.getElementById("mins").innerHTML = Math.floor((dist % (1000*60*60)) / (1000*60));
+    }
 }, 1000);
