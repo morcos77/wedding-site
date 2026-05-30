@@ -33,12 +33,25 @@
         <div class="card">
             <h2>⛪ Ceremony</h2>
             <p>St. John Church</p>
-            <a href="URL_CHIESA" target="_blank" class="map-link">📍 View on Maps</a>
+            <a href="https://www.google.com/maps/place/%D9%83%D9%86%D9%8A%D8%B3%D8%A9+%D8%A7%D9%84%D8%A3%D9%86%D8%AC%D9%8A%D9%84%D9%89+%D9%85%D8%A7%D8%B1+%D9%8A%D9%88%D8%AD%D9%86%D8%A7+%D8%A7%D9%84%D8%AD%D8%A8%D9%8A%D8%A8+%D8%A8%D8%A8%D9%86%D9%87%D8%A7+%D8%A5%D9%8A%D8%A8%D8%A7%D8%B1%D8%B4%D9%8A%D8%A9+%D8%A8%D9%86%D9%87%D8%A7+%D9%88+%D9%82%D9%88%D9%8A%D8%B3%D9%86%D8%A7+%D9%88+%D8%AA%D9%88%D8%A7%D8%A8%D8%B9%D9%87%D8%A7%E2%80%AD/@30.4697317,31.1785743,17z/data=!3m1!4b1!4m6!3m5!1s0x14f7df50954276a3:0xf0d354aca1b7bed0!8m2!3d30.4697317!4d31.1811492!16s%2Fg%2F11b75qnzfp?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">📍 View on Maps</a>
         </div>
         <div class="card">
             <h2>🎉 Reception</h2>
             <p>Almasa Hall</p>
-            <a href="URL_SALA" target="_blank" class="map-link">📍 View on Maps</a>
+            <a href="https://www.google.com/maps/place/%D9%82%D8%A7%D8%B9%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D8%B3%D8%A9+-+El+Masa+Wedding+Hall%E2%80%AD/@30.4816256,31.1701001,17z/data=!3m1!4b1!4m6!3m5!1s0x14f7df4b5c7187ff:0xe81348c192b6d062!8m2!3d30.4816256!4d31.172675!16s%2Fg%2F11cn6q1kwg?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">📍 View on Maps</a>
+        </div>
+        
+        <div class="card">
+            <h2>💌 Send a Message</h2>
+            <input type="text" placeholder="Your Name" class="input-field" id="sender-name">
+            <textarea placeholder="Write a message for us..." class="input-field" id="message"></textarea>
+            <button class="submit-btn" onclick="alert('Message Sent!')">Send Message</button>
+        </div>
+        <div class="card">
+            <h2>📸 Upload Images (Max 10)</h2>
+            <input type="file" multiple accept="image/*" id="file-input" class="input-field" onchange="checkFileCount()">
+            <p id="file-count" style="font-size: 12px; color: #888;">0/10 selected</p>
+            <button class="submit-btn" onclick="alert('Upload successful!')">Upload Images</button>
         </div>
     </div>
 
