@@ -1,20 +1,18 @@
 body { margin: 0; font-family: sans-serif; text-align: center; background: #fcf6ff; color: #5a4a6b; }
-
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 .overlay { position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.2); z-index: 0; }
 .hero-content { position: relative; z-index: 5; padding: 20px; }
 
 .names-image, .date-image { width: 80%; max-width: 400px; display: block; margin: 10px auto; }
-
 .countdown { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
 .flip-card { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 60px; }
 .flip-card span { display: block; font-size: 24px; font-weight: bold; color: #8a70a0; }
 .flip-card label { font-size: 10px; color: #aaa; text-transform: uppercase; }
 
 .card { background: white; padding: 20px; margin: 20px auto; max-width: 350px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.input-field { width: 90%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; }
-.submit-btn, .qr-btn { background: #8a70a0; color: white; border: none; padding: 15px 30px; border-radius: 20px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+.input-field { width: 80%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; display: block; margin-left: auto; margin-right: auto; }
+.submit-btn, .qr-btn { background: #8a70a0; color: white; border: none; padding: 15px 30px; border-radius: 20px; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block; }
 .map-link { display: block; color: #8a70a0; font-weight: bold; margin-top: 10px; text-decoration: none; }
 
 .decor-gif { position: fixed; width: 120px; z-index: 100; pointer-events: none; }
