@@ -18,7 +18,6 @@ body.locked {
     overflow: hidden;
 }
 
-
 /* ================= ENVELOPE ================= */
 
 #envelope-screen {
@@ -31,12 +30,17 @@ body.locked {
     justify-content: center;
 
     background:
-        radial-gradient(circle at 30% 20%, #ffffff, transparent 35%),
+        radial-gradient(circle at 30% 20%, #ffffff 0%, transparent 35%),
         linear-gradient(135deg, #edf7ff, #f5efff);
 
+    opacity: 1;
+    visibility: visible;
+
     transition:
-        opacity .8s ease,
-        visibility .8s ease;
+        opacity 1s ease,
+        visibility 1s ease;
+
+    pointer-events: auto;
 }
 
 #envelope-screen.hide {
@@ -47,72 +51,49 @@ body.locked {
 
 .envelope-wrap {
     width: min(88vw, 360px);
+
     text-align: center;
+
     cursor: pointer;
     user-select: none;
+
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
 
+
+/* ENVELOPE */
+
 .envelope {
     position: relative;
+
     width: 100%;
     aspect-ratio: 1.55;
+
     perspective: 1000px;
+
+    touch-action: manipulation;
 }
+
+
+/* BACK */
 
 .envelope-back {
     position: absolute;
     inset: 0;
+
+    z-index: 1;
+
     background: #d5e7f5;
-    border-radius: 9px;
-    box-shadow: 0 25px 60px rgba(65, 85, 110, .25);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 25px 60px rgba(65, 85, 110, .25);
 }
 
-.envelope-front {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
 
-    background: #c5dced;
-
-    clip-path:
-        polygon(
-            0 0,
-            50% 55%,
-            100% 0,
-            100% 100%,
-            0 100%
-        );
-
-    border-radius: 9px;
-}
-
-.envelope-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 61%;
-
-    z-index: 5;
-
-    background: #e8f3fb;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin: top center;
-
-    transition:
-        transform 1s cubic-bezier(.65, 0, .35, 1);
-
-    backface-visibility: hidden;
-}
+/* INVITATION CARD */
 
 .invitation-card {
     position: absolute;
@@ -131,9 +112,13 @@ body.locked {
     justify-content: center;
 
     background: white;
-    border-radius: 7px;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .12);
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, .15);
+
+    transform: translateY(0);
 
     transition:
         transform 1.1s cubic-bezier(.65, 0, .35, 1);
@@ -146,10 +131,72 @@ body.locked {
 
 .invitation-card small {
     margin-top: 8px;
+
     font-size: 11px;
     letter-spacing: 2px;
+
     color: #8999aa;
 }
+
+
+/* FRONT */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    background: #c5dced;
+
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    border-radius: 9px;
+
+    pointer-events: none;
+}
+
+
+/* FLAP */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 61%;
+
+    z-index: 5;
+
+    background: #e8f3fb;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top center;
+
+    transition:
+        transform 1s cubic-bezier(.65, 0, .35, 1);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* SEAL */
 
 .envelope-seal {
     position: absolute;
@@ -170,29 +217,42 @@ body.locked {
     border-radius: 50%;
 
     background: #91afd0;
+
     color: white;
 
     font-size: 26px;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .18);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, .18);
 
     transition:
         opacity .4s ease,
         transform .5s ease;
+
+    pointer-events: none;
 }
+
+
+/* OPEN ANIMATION */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
 .envelope.open .invitation-card {
-    transform: translateY(-55%);
+    transform: translateY(-65%);
 }
 
 .envelope.open .envelope-seal {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1.4);
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.4);
 }
+
+
+/* TEXT */
 
 .open-text {
     margin-top: 26px;
@@ -200,16 +260,47 @@ body.locked {
     color: #63758a;
 
     font-size: 13px;
+
     letter-spacing: 3px;
+
     text-transform: uppercase;
 
     animation: pulseText 1.8s infinite;
+
+    pointer-events: none;
 }
 
 @keyframes pulseText {
+
     50% {
         opacity: .4;
     }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .envelope-wrap {
+        width: 88vw;
+        max-width: 330px;
+    }
+
+    .invitation-card div {
+        font-size: 34px;
+    }
+
+    .invitation-card small {
+        font-size: 9px;
+    }
+
+    .envelope-seal {
+        width: 44px;
+        height: 44px;
+    }
+
 }
 
 
