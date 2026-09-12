@@ -201,4 +201,4 @@ function toggleMusic() {
     else
         music.pause();
 }
-```
+
