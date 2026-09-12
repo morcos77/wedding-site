@@ -1,4 +1,4 @@
-```javascript
+
 /* ENVELOPE */
 
 function openInvitation() {
