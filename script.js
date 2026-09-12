@@ -1,204 +1,159 @@
 
-/* ENVELOPE */
-
 function openInvitation() {
+    const screen = document.getElementById("envelope-screen");
+    const envelope = document.querySelector(".envelope");
+    const website = document.getElementById("website");
 
-    const envelope =
-        document.querySelector(".envelope");
+    if (!screen || !envelope || !website) return;
 
     envelope.classList.add("open");
 
     setTimeout(() => {
+        screen.classList.add("hide");
+        website.classList.add("show");
+        document.body.classList.remove("locked");
 
-        document
-            .getElementById("envelope-screen")
-            .classList.add("hide");
-
-        document
-            .getElementById("website")
-            .classList.add("show");
-
-        startConfetti();
-
-    }, 1200);
+        if (typeof startConfetti === "function") {
+            startConfetti();
+        }
+    }, 1400);
 }
 
 
-/* COUNTDOWN */
-
-const wedding =
-    new Date("February 27, 2027 11:00:00").getTime();
+// COUNTDOWN
+const wedding = new Date("February 27, 2027 11:00:00").getTime();
 
 function countdown() {
-
-    const distance =
-        wedding - Date.now();
+    const distance = wedding - Date.now();
 
     if (distance <= 0) return;
 
-    const days =
-        Math.floor(distance / 86400000);
-
-    const hours =
-        Math.floor(
-            (distance % 86400000) / 3600000
-        );
-
-    const minutes =
-        Math.floor(
-            (distance % 3600000) / 60000
-        );
-
     document.getElementById("days").textContent =
-        String(days).padStart(2,"0");
+        String(Math.floor(distance / 86400000)).padStart(2, "0");
 
     document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
+        String(Math.floor((distance % 86400000) / 3600000)).padStart(2, "0");
 
     document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
+        String(Math.floor((distance % 3600000) / 60000)).padStart(2, "0");
 }
 
 countdown();
-setInterval(countdown,60000);
+setInterval(countdown, 60000);
 
 
-/* CONFETTI */
-
+// CONFETTI
 function startConfetti() {
-
-    if (typeof confetti === "undefined")
-        return;
+    if (typeof confetti === "undefined") return;
 
     confetti({
-        particleCount:100,
-        spread:80,
-        origin:{y:.6}
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 }
     });
 }
 
 function celebrate() {
-
-    if (typeof confetti === "undefined")
-        return;
+    if (typeof confetti === "undefined") return;
 
     confetti({
-        particleCount:180,
-        spread:120,
-        origin:{y:.6}
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
     });
 }
 
 
-/* QR */
-
+// QR POPUP
 function openQR() {
+    const popup = document.getElementById("qr-popup");
 
-    document
-        .getElementById("qr-popup")
-        .classList.add("active");
-
-    startConfetti();
+    if (popup) {
+        popup.classList.add("active");
+        startConfetti();
+    }
 }
 
 function closeQR() {
+    const popup = document.getElementById("qr-popup");
 
-    document
-        .getElementById("qr-popup")
-        .classList.remove("active");
-}
-
-
-/* SHARE */
-
-async function shareWedding() {
-
-    const data = {
-        title:"M ♡ E | Our Wedding",
-        text:"Join us on 27 February 2027 ❤️",
-        url:location.href
-    };
-
-    if (navigator.share) {
-
-        try {
-            await navigator.share(data);
-        } catch {}
-
-    } else {
-
-        await navigator.clipboard.writeText(
-            location.href
-        );
-
-        alert("Invitation link copied ❤️");
+    if (popup) {
+        popup.classList.remove("active");
     }
 }
 
 
-/* SCROLL ANIMATION */
+// SHARE
+async function shareWedding() {
+    const data = {
+        title: "M ♡ E | Our Wedding",
+        text: "Join us on 27 February 2027 ❤️",
+        url: window.location.href
+    };
 
-const observer =
-    new IntersectionObserver(
-        entries => {
+    if (navigator.share) {
+        try {
+            await navigator.share(data);
+        } catch (e) {}
+        return;
+    }
 
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting)
-                    entry.target.classList.add("visible");
-
-            });
-
-        },
-        {threshold:.15}
-    );
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(el => observer.observe(el));
+    try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Invitation link copied ❤️");
+    } catch (e) {
+        alert(window.location.href);
+    }
+}
 
 
-/* TOP BUTTON */
+// SCROLL REVEAL
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    { threshold: 0.15 }
+);
 
-window.addEventListener("scroll",() => {
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
 
-    document
-        .getElementById("top")
-        .classList.toggle(
-            "show",
-            scrollY > 500
-        );
 
+// BACK TO TOP
+window.addEventListener("scroll", () => {
+    const button = document.getElementById("top");
+
+    if (button) {
+        button.classList.toggle("show", window.scrollY > 500);
+    }
 });
 
 function topPage() {
-
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 }
 
 
-/* MUSIC */
-
+// MUSIC
 function toggleMusic() {
+    const music = document.getElementById("music");
 
-    const music =
-        document.getElementById("music");
-
-    if (!music.src) {
-
-        alert(
-            "Add images/music.mp3 if you want background music."
-        );
-
+    if (!music || !music.src) {
+        alert("Add images/music.mp3 if you want background music.");
         return;
     }
 
-    if (music.paused)
+    if (music.paused) {
         music.play();
-    else
+    } else {
         music.pause();
+    }
 }
 
