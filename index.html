@@ -11,153 +11,292 @@
 
 <body>
 
-<!-- ENVELOPE OPENING -->
+<!-- ENVELOPE INTRO -->
 <div id="envelope-screen">
+    <div class="envelope-wrap" onclick="openInvitation()">
 
-    <div class="ceiling">
-        <div class="chain"></div>
-        <div class="chandelier">
-            <span class="candle c1"></span>
-            <span class="candle c2"></span>
-            <span class="candle c3"></span>
-            <span class="candle c4"></span>
-            <span class="candle c5"></span>
-        </div>
-    </div>
+        <div class="envelope">
+            <div class="envelope-back"></div>
 
-    <div class="welcome-text">
-        <small>YOU ARE INVITED</small>
-        <div>Tap the envelope</div>
-    </div>
+            <div class="invitation-card">
+                <div>M ♡ E</div>
+                <small>27 February 2027</small>
+            </div>
 
-    <div class="envelope" id="envelope">
-        <div class="invitation-card">
-            <div class="mini-logo">M <span>♥</span> E</div>
-            <div>Our Wedding</div>
-            <small>27 February 2027</small>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-seal">♡</div>
         </div>
 
-        <div class="envelope-back"></div>
-        <div class="envelope-flap"></div>
-        <div class="envelope-front"></div>
+        <p class="open-text">Tap to open</p>
     </div>
-
-    <div class="floor-glow"></div>
 </div>
 
 
-<!-- MAIN INVITATION -->
-<main id="invitation">
+<!-- MAIN WEBSITE -->
+<div id="website">
 
+    <button class="music-button" onclick="toggleMusic()">♫</button>
+
+    <audio id="music" loop>
+        <!-- Optional:
+        <source src="images/music.mp3" type="audio/mpeg">
+        -->
+    </audio>
+
+
+    <!-- HERO -->
     <section class="hero">
-        <img src="images/main.jpeg" class="hero-bg">
-        <div class="overlay"></div>
+
+        <img src="images/main.jpeg" class="hero-bg" alt="M & E">
+
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <img src="images/names.png" class="names-image">
-            <img src="images/nameanddate.png" class="date-image">
 
-            <div class="countdown">
-                <div class="flip-card">
-                    <span id="days">00</span>
-                    <label>Days</label>
-                </div>
-
-                <div class="flip-card">
-                    <span id="hours">00</span>
-                    <label>Hours</label>
-                </div>
-
-                <div class="flip-card">
-                    <span id="mins">00</span>
-                    <label>Minutes</label>
-                </div>
+            <div class="names-wrap">
+                <img src="images/names.png" class="names-image">
             </div>
 
-            <button class="qr-btn" onclick="triggerConfetti()">View QR Code</button>
+            <img src="images/nameanddate.png" class="date-image">
+
+            <p class="countdown-text">
+                We can't wait to celebrate with you
+            </p>
+
+            <div class="countdown">
+
+                <div>
+                    <strong id="days">00</strong>
+                    <span>Days</span>
+                </div>
+
+                <b>:</b>
+
+                <div>
+                    <strong id="hours">00</strong>
+                    <span>Hours</span>
+                </div>
+
+                <b>:</b>
+
+                <div>
+                    <strong id="minutes">00</strong>
+                    <span>Minutes</span>
+                </div>
+
+            </div>
+
+            <div class="hero-buttons">
+                <button class="main-btn" onclick="openQR()">♡ View Invitation</button>
+                <button class="outline-btn" onclick="shareWedding()">↗ Share</button>
+            </div>
+
         </div>
+
+        <a href="#details" class="scroll">
+            ↓
+        </a>
+
     </section>
 
 
+    <!-- DETAILS -->
+    <section class="section" id="details">
+
+        <div class="section-title reveal">
+            <small>THE DAY</small>
+            <h2>Our Wedding</h2>
+            <span>♡</span>
+            <p>A beautiful day filled with love, family and memories.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card reveal">
+                <div class="icon">⛪</div>
+                <small>01</small>
+                <h3>Ceremony</h3>
+                <hr>
+                <strong>St. John Church</strong>
+                <p>Join us as we begin our journey together.</p>
+                <a href="URL_CHIESA" target="_blank">📍 View on Maps</a>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">🎉</div>
+                <small>02</small>
+                <h3>Reception</h3>
+                <hr>
+                <strong>Almasa Hall</strong>
+                <p>Let's celebrate, eat, dance and make memories.</p>
+                <a href="URL_SALA" target="_blank">📍 View on Maps</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+
+        <div class="section-title reveal">
+            <small>THE CELEBRATION</small>
+            <h2>Our Day</h2>
+            <span>♡</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <div class="dot">⛪</div>
+                <div>
+                    <small>11:00</small>
+                    <h3>Ceremony</h3>
+                    <p>The beginning of our beautiful journey.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="dot">🥂</div>
+                <div>
+                    <small>After Ceremony</small>
+                    <h3>Reception</h3>
+                    <p>Food, drinks and wonderful moments together.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="dot">💃</div>
+                <div>
+                    <small>Evening</small>
+                    <h3>Let's Celebrate</h3>
+                    <p>Music, dancing and memories forever.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTOS -->
     <section class="section">
 
-        <div class="card">
-            <h2>⛪ Ceremony</h2>
-            <p>St. John Church</p>
-            <a href="URL_CHIESA" target="_blank" class="map-link">
-                📍 View on Maps
-            </a>
+        <div class="section-title reveal">
+            <small>OUR MEMORIES</small>
+            <h2>Gallery</h2>
+            <span>♡</span>
+            <p>We would love to see the day through your eyes.</p>
         </div>
 
-        <div class="card">
-            <h2>🎉 Reception</h2>
-            <p>Almasa Hall</p>
-            <a href="URL_SALA" target="_blank" class="map-link">
-                📍 View on Maps
-            </a>
-        </div>
-
-        <div class="card">
-            <h2>💌 Send a Message</h2>
-
-            <form action="URL_FORMSPREE" method="POST">
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    class="input-field"
-                    required>
-
-                <textarea
-                    name="message"
-                    placeholder="Write a message..."
-                    class="input-field"
-                    required></textarea>
-
-                <button type="submit" class="submit-btn">
-                    Send Message
-                </button>
-            </form>
-        </div>
-
-        <div class="card">
-            <h2>📸 Gallery</h2>
-            <p>Share your photos with us!</p>
+        <div class="photo-card reveal">
+            <div>📸</div>
+            <h3>Share Your Memories</h3>
+            <p>Upload your favorite moments from our special day.</p>
 
             <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeTGxKjUz-BYHdLkFZAeTj0hFAWEx0BnJthh9v2BviZJf6H5Q/viewform"
                 target="_blank"
-                class="submit-btn">
-                Upload Photos
+                class="main-btn">
+                📸 Upload Photos
             </a>
+
+            <small>Maximum 10 photos</small>
         </div>
 
     </section>
 
 
+    <!-- MESSAGE -->
+    <section class="message-section">
+
+        <div class="section-title reveal">
+            <small>A LITTLE LOVE</small>
+            <h2>Leave Us a Message</h2>
+            <span>♡</span>
+            <p>Your words will become part of our memories.</p>
+        </div>
+
+        <form action="URL_FORMSPREE" method="POST" class="message-card reveal">
+
+            <label>Your Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required>
+
+            <label>Your Message</label>
+            <textarea
+                name="message"
+                placeholder="Write something beautiful..."
+                required></textarea>
+
+            <button class="main-btn" type="submit">
+                💌 Send with Love
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FINAL -->
     <section class="final-section">
-        <div class="final-logo">
-            <span class="m-letter">M</span>
-            <span class="heart">♥</span>
-            <span class="e-letter">E</span>
+
+        <div class="final-content reveal">
+
+            <small>WITH LOVE</small>
+
+            <div class="final-names">
+                <span>M</span>
+                <span class="final-heart">♡</span>
+                <span>E</span>
+            </div>
+
+            <p>Forever starts here.</p>
+
         </div>
 
-        <h2>27 February 2027</h2>
-        <p>We can't wait to celebrate with you.</p>
     </section>
 
-</main>
+
+    <footer>
+        Made with love ♡
+    </footer>
+
+
+    <button id="top" onclick="topPage()">↑</button>
+
+</div>
 
 
 <!-- QR -->
-<div id="qr-popup" class="qr-popup" onclick="closeQR()">
-    <div class="qr-content" onclick="event.stopPropagation()">
-        <img src="images/qr.png" alt="QR Code">
-        <button class="close-btn" onclick="closeQR()">✕ Close</button>
+<div id="qr-popup" onclick="closeQR()">
+
+    <div class="qr-box" onclick="event.stopPropagation()">
+
+        <button onclick="closeQR()">×</button>
+
+        <h2>M ♡ E</h2>
+
+        <p>Our Wedding Invitation</p>
+
+        <img src="images/qr.png">
+
+        <button class="main-btn" onclick="celebrate()">
+            🎉 Celebrate With Us
+        </button>
+
     </div>
+
 </div>
 
+
 <script src="script.js"></script>
+
 </body>
 </html>
-
