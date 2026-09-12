@@ -1,106 +1,76 @@
 
 const weddingDate = new Date("Feb 27, 2027 11:00:00").getTime();
 
-let envelopeOpened = false;
+const envelope = document.getElementById("envelope");
+const screen = document.getElementById("envelope-screen");
+const invitation = document.getElementById("invitation");
+
+let opened = false;
 
 
-/* =========================
-   OPEN ENVELOPE
-========================= */
+/* Open envelope by tapping it */
+envelope.addEventListener("click", openEnvelope);
+envelope.addEventListener("touchend", e => {
+    e.preventDefault();
+    openEnvelope();
+});
 
-function openEnvelope(event) {
-
-    if (envelopeOpened) return;
-
-    envelopeOpened = true;
-
-    event.stopPropagation();
-
-    const envelope = document.getElementById("envelope");
-    const screen = document.getElementById("envelope-screen");
+function openEnvelope() {
+    if (opened) return;
+    opened = true;
 
     envelope.classList.add("open");
 
     setTimeout(() => {
-
         screen.classList.add("hidden");
+        invitation.classList.add("visible");
 
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
 
         confetti({
             particleCount: 120,
             spread: 80,
-            origin: {
-                y: 0.6
-            }
+            origin: { y: .6 }
         });
-
-    }, 1600);
+    }, 1900);
 }
 
 
-/* =========================
-   QR CODE
-========================= */
+/* Countdown */
+function updateCountdown() {
+    const distance = weddingDate - Date.now();
 
+    if (distance <= 0) return;
+
+    document.getElementById("days").textContent =
+        Math.floor(distance / 86400000);
+
+    document.getElementById("hours").textContent =
+        Math.floor((distance % 86400000) / 3600000);
+
+    document.getElementById("mins").textContent =
+        Math.floor((distance % 3600000) / 60000);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+/* QR */
 function triggerConfetti() {
-
     confetti({
         particleCount: 150,
         spread: 70,
-        origin: {
-            y: 0.6
-        }
+        origin: { y: .6 }
     });
 
     document.getElementById("qr-popup").style.display = "flex";
 }
 
-
 function closeQR() {
-
     document.getElementById("qr-popup").style.display = "none";
 }
-
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-function updateCountdown() {
-
-    const distance = weddingDate - Date.now();
-
-    if (distance <= 0) {
-
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("mins").textContent = "00";
-
-        return;
-    }
-
-    const days = Math.floor(distance / 86400000);
-
-    const hours = Math.floor(
-        (distance % 86400000) / 3600000
-    );
-
-    const mins = Math.floor(
-        (distance % 3600000) / 60000
-    );
-
-    document.getElementById("days").textContent = days;
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("mins").textContent =
-        String(mins).padStart(2, "0");
-}
-
-
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
 
