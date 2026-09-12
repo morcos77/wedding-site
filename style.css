@@ -11,17 +11,24 @@ body {
     color: #51405f;
 }
 
-/* ENVELOPE */
+
+/* =========================
+   ENVELOPE
+========================= */
 
 #envelope-screen {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #eee2f5, #dceefa);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 2000;
-    transition: opacity 1s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #ffffff 0%, #f4eafa 55%, #e4f3fa 100%);
+
+    transition: opacity .8s ease;
 }
 
 #envelope-screen.hidden {
@@ -29,165 +36,312 @@ body {
     pointer-events: none;
 }
 
-.envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #d9c2e5;
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(70, 50, 80, .25);
-    cursor: pointer;
-    perspective: 800px;
+.envelope-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.letter {
+
+/* Envelope */
+
+.envelope {
+    position: relative;
+
+    width: 330px;
+    height: 220px;
+
+    perspective: 1000px;
+}
+
+
+/* Back */
+
+.envelope-back {
     position: absolute;
+    inset: 0;
+
+    background: #d8bddf;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 20px 45px rgba(70, 45, 80, .25);
+
+    z-index: 1;
+}
+
+
+/* Invitation */
+
+.invitation-card {
+    position: absolute;
+
     left: 10%;
-    bottom: 10px;
+    bottom: 8px;
+
     width: 80%;
-    height: 155px;
+    height: 185px;
+
     background: white;
+
     border-radius: 5px;
-    z-index: 2;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
-    transition: 1s;
+    align-items: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+
+    z-index: 2;
+
+    transition:
+        transform 1s ease,
+        bottom 1s ease;
 }
 
-.letter strong {
-    font: 32px Georgia, serif;
-    color: #655078;
+.card-logo {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: #705486;
+    font-weight: bold;
 }
 
-.letter span {
-    font-size: 14px;
-    color: #777;
+.card-logo span {
+    color: #d45160;
 }
 
-.flap {
-    position: absolute;
-    inset: 0;
-    background: #c9acd9;
-    clip-path: polygon(0 0, 100% 0, 50% 58%);
-    transform-origin: top;
-    transition: 1s;
-    z-index: 4;
+.card-title {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: #55435f;
 }
 
-.envelope.open .flap {
-    transform: rotateX(180deg);
+.card-date {
+    margin-top: 8px;
+
+    font-size: 13px;
+    color: #888;
 }
 
-.envelope.open .letter {
-    transform: translateY(-90px);
-}
+
+/* Front */
 
 .envelope-front {
     position: absolute;
     inset: 0;
-    background: #d9c2e5;
-    clip-path: polygon(0 45%, 50% 100%, 100% 45%, 100% 100%, 0 100%);
-    z-index: 3;
+
+    background: #d8bddf;
+
+    clip-path: polygon(
+        0 43%,
+        50% 100%,
+        100% 43%,
+        100% 100%,
+        0 100%
+    );
+
+    border-radius: 8px;
+
+    z-index: 4;
+
+    pointer-events: none;
 }
 
-.open-text {
+
+/* Flap */
+
+.envelope-flap {
     position: absolute;
-    bottom: -55px;
+    top: 0;
+    left: 0;
+
     width: 100%;
-    color: #51405f;
-    font-weight: bold;
+    height: 120px;
+
+    background: #c9a9d5;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top center;
+
+    transition: transform 1s ease;
+
+    z-index: 5;
 }
 
-/* HERO */
+
+/* Opened envelope */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .invitation-card {
+    transform: translateY(-105px);
+}
+
+
+/* Button */
+
+.open-button {
+    margin-top: 35px;
+
+    padding: 14px 32px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #80699a;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(80,60,90,.2);
+
+    transition: .2s;
+}
+
+.open-button:hover {
+    background: #66517b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     height: 100vh;
     min-height: 650px;
+
     position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     overflow: hidden;
 }
 
 .hero-bg {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     z-index: -2;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(35, 25, 45, .28);
+
+    background: rgba(35,25,45,.28);
+
     z-index: -1;
 }
 
 .hero-content {
     width: 100%;
     padding: 20px;
+
     color: white;
 }
 
 .names-image,
 .date-image {
     display: block;
+
     width: 80%;
     max-width: 400px;
+
     margin: 15px auto;
 }
 
 .countdown-title {
     font-size: 16px;
     font-weight: bold;
+
     text-shadow: 0 2px 5px #333;
 }
 
 .countdown {
     display: flex;
     justify-content: center;
+
     gap: 12px;
+
     margin: 20px 0;
 }
 
 .flip-card {
     width: 75px;
+
     padding: 15px 8px;
+
     background: rgba(255,255,255,.95);
+
     border-radius: 15px;
+
     box-shadow: 0 5px 15px rgba(0,0,0,.2);
 }
 
 .flip-card span {
     display: block;
+
     font-size: 26px;
     font-weight: bold;
+
     color: #735c84;
 }
 
 .flip-card label {
     font-size: 10px;
+
     color: #777;
+
     text-transform: uppercase;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .submit-btn,
 .qr-btn {
     display: inline-block;
+
     background: #80699a;
     color: white;
+
     border: none;
+
     padding: 14px 28px;
+
     border-radius: 22px;
+
     cursor: pointer;
+
     font-size: 15px;
+
     text-decoration: none;
 }
 
@@ -198,12 +352,18 @@ body {
 
 .map-link {
     display: block;
+
     margin-top: 12px;
+
     color: #80699a;
+
     font-weight: bold;
 }
 
-/* CARDS */
+
+/* =========================
+   CARDS
+========================= */
 
 .section {
     padding: 40px 15px;
@@ -211,66 +371,99 @@ body {
 
 .card {
     background: white;
+
     max-width: 380px;
+
     margin: 20px auto;
+
     padding: 25px;
+
     border-radius: 20px;
+
     box-shadow: 0 5px 18px rgba(80,60,90,.1);
 }
 
 .card h2 {
     font-family: Georgia, serif;
+
     color: #655078;
 }
 
 .input-field {
     width: 90%;
+
     padding: 12px;
+
     margin: 8px 0;
+
     border: 1px solid #ddd;
+
     border-radius: 10px;
+
     font-family: inherit;
 }
 
-/* QR */
+
+/* =========================
+   QR
+========================= */
 
 .qr-popup {
     display: none;
+
     position: fixed;
     inset: 0;
+
     background: rgba(0,0,0,.8);
+
     z-index: 1000;
+
     align-items: center;
     justify-content: center;
 }
 
 .qr-content {
     background: white;
+
     padding: 20px;
+
     border-radius: 20px;
 }
 
 .qr-content img {
     width: 250px;
+
     max-width: 80vw;
 }
 
 .close-btn {
     display: block;
+
     margin: 15px auto 0;
+
     background: #d85d68;
+
     color: white;
+
     border: 0;
+
     padding: 10px 20px;
+
     border-radius: 10px;
 }
 
-/* DECORATION */
+
+/* =========================
+   DECORATION
+========================= */
 
 .decor-gif {
     position: fixed;
+
     width: 120px;
+
     z-index: 100;
+
     pointer-events: none;
 }
 
@@ -284,45 +477,81 @@ body {
     right: 20px;
 }
 
-/* FINAL */
+
+/* =========================
+   FINAL
+========================= */
 
 .final-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #f5eff9, #eaf6fc);
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5eff9,
+            #eaf6fc
+        );
 }
 
 .final-names {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 18px;
+
     font-family: Georgia, serif;
+
     font-size: 55px;
+
     font-weight: bold;
 }
 
-.final-names span:first-child {
+.final-m {
     color: #73568b;
 }
 
-.final-names .heart {
+.final-heart {
     color: #d64f5d;
+
     font-size: 42px;
+
+    line-height: 1;
 }
 
-.final-names span:last-child {
+.final-e {
     color: #75aeca;
 }
 
 .final-section p {
     color: #655078;
+
     font-size: 17px;
+
     margin-top: 15px;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
+
+    .envelope {
+        width: 290px;
+        height: 195px;
+    }
+
+    .invitation-card {
+        height: 165px;
+    }
+
+    .envelope-flap {
+        height: 105px;
+    }
+
     .decor-gif {
         width: 80px;
     }
